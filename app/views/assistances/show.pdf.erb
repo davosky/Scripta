@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('pdfprintstyle') %>
+  </head>
+  <body>
+    <div id='page'>
+      <div id='header'>
+        <div id='logo'>
+          <h2>
+            <strong>
+              <%= inline_svg('main_logo.svg', size: '64px * 64px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+            </strong>
+          </h2>
+        </div>
+        <hr>
+      </div>
+      <div>
+        <h3>
+          Modello: <%= @assistance.name %>
+          &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <%= @assistance.title %>
+        </h3>
+        <br>
+        Documenti Richiesti:
+        <hr>
+        <br>
+        <%= @assistance.content %>
+      </div>
+    </div>
+  </body>
+</html>

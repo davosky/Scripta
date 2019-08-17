@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @assistance.position %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @assistance.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @assistance.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @assistance.content %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @assistance.note %>
+</p>
+
+<p>
+  <strong>Creation date:</strong>
+  <%= @assistance.creation_date %>
+</p>
+
+<p>
+  <strong>Revision date:</strong>
+  <%= @assistance.revision_date %>
+</p>
+
+<%= link_to 'Edit', edit_assistance_path(@assistance) %> |
+<%= link_to 'Back', assistances_path %>

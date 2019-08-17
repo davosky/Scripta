@@ -1,0 +1,44 @@
+<h4 class='text-info'>
+<%= inline_svg('assistenza_icon_22.svg', size: '32px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+&nbsp;&nbsp;
+Assistenza
+<span class='pull-right'>
+  <h6>
+    <%= link_to new_assistance_path do %>
+      <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+      &nbsp;
+      <%= inline_svg('assistenza_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+      Nuova Scheda
+    <% end %>
+  </h6>
+</span>
+</h4>
+<hr>
+<div class='container'>
+  <% @assistances.each_slice(3)  do |assistances| %>
+    <div class='row'>
+    <% assistances.each  do |assistance| %>
+      <div class='col-lg-4'>
+        <div class='panel panel-default'>
+          <div class='panel-heading'>
+            <%= inline_svg('assistenza_icon_22.svg', size: '11px * 11px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+            &nbsp;
+            <%= assistance.name %>
+            <span class='pull-right'>
+              <%= link_to assistance_path(assistance, format: :pdf), target: 'new' do %>
+                <%= inline_svg('pdf_icon_22.svg', size: '11px * 11px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+                &nbsp;PDF
+              <% end %>
+            </span>
+          </div>
+          <div class='panel-body'>
+            <h5>
+              <%= link_to assistance.title, assistance %>
+            </h5>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
