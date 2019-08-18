@@ -4,7 +4,7 @@
 Assistenza
 <span class='pull-right'>
   <h6>
-    <%= link_to new_assistance_path do %>
+    <%= link_to new_assistance_path, class: 'btn btn-default btn-sm' do %>
       <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
       &nbsp;
       <%= inline_svg('assistenza_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
@@ -32,9 +32,9 @@ Assistenza
             </span>
           </div>
           <div class='panel-body'>
-            <h5>
+            <H6>
               <%= link_to assistance.title, assistance %>
-            </h5>
+            </H6>
           </div>
         </div>
       </div>

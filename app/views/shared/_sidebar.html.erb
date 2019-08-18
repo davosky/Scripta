@@ -7,10 +7,14 @@
         </li>
         <hr>
         <li>
+          <%= inline_svg('inca_icon_64.svg', size: '128px * 64px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+        </li>
+        <li>
           <%= link_to assistances_path do %>
-          <h5>
-            <strong>ASSISTENZA</strong>
-          </h5>
+          <h6>
+            <%= inline_svg('assistenza_icon_22.svg', size: '14px * 14px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+            ASSISTENZA
+          </h6>
           <% end %>
         </li>
       </ul>

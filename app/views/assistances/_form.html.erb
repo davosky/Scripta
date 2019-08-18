@@ -1,52 +1,57 @@
-<%= form_with(model: assistance, local: true) do |form| %>
-  <% if assistance.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(assistance.errors.count, "error") %> prohibited this assistance from being saved:</h2>
-
-      <ul>
-      <% assistance.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class='container'>
+  <div class='col col-lg-10 col-lg-offset-1'>
+    <%= form_with(model: assistance, local: true) do |form| %>
+    <% if assistance.errors.any? %>
+      <div id='error_explanation'>
+        <h2><%= pluralize(assistance.errors.count, 'error') %>
+          prohibited this assistance from being saved:</h2>
+        <ul>
+          <% assistance.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class='field'>
+      <%= form.label :position, class: 'text-info' %>
+      <%= form.number_field :position, class: 'form-control' %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :position %>
-    <%= form.number_field :position %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
-  </div>
-
-  <div class="field">
-    <%= form.label :creation_date %>
-    <%= form.date_select :creation_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :revision_date %>
-    <%= form.date_select :revision_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class='field'>
+      <%= form.label :name, class: 'text-info' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label :title, class: 'text-info' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label :content, class: 'text-info' %>
+      <%= form.hidden_field :content, id: :content, class: 'form-control' %>
+      <trix-editor input='content'></trix-editor>
+    </div>
+    <div class='field'>
+      <%= form.label :creation_date, class: 'text-info' %>
+      <%= form.text_field :creation_date, class: 'datepicker form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label :revision_date, class: 'text-info' %>
+      <%= form.text_field :revision_date, class: 'datepicker form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label :note, class: 'text-info' %>
+      <%= form.text_area :note, id: :content, class: 'form-control' %>
+    </div>
+    <br>
+    <div class='form-group'>
+      <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
+      <%= fa_icon('save') %>&nbsp;&nbsp;Salva
+    <% end %>
   </div>
 <% end %>
+</div>
+</div>
+<script>
+$(document).ready(function () {
+  $('.datepicker').datepicker({language: 'it'});
+});
+</script>
