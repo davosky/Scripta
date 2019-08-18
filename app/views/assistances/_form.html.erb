@@ -2,15 +2,15 @@
   <div class='col col-lg-10 col-lg-offset-1'>
     <%= form_with(model: assistance, local: true) do |form| %>
     <% if assistance.errors.any? %>
-      <div id='error_explanation'>
-        <h2><%= pluralize(assistance.errors.count, 'error') %>
-          prohibited this assistance from being saved:</h2>
-        <ul>
-          <% assistance.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+    <div id='error_explanation'>
+      <h2><%= pluralize(assistance.errors.count, 'error') %>
+        prohibited this assistance from being saved:</h2>
+      <ul>
+        <% assistance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
     <div class='field'>
       <%= form.label :position, class: 'text-info' %>
@@ -45,13 +45,15 @@
     <div class='form-group'>
       <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
       <%= fa_icon('save') %>&nbsp;&nbsp;Salva
+      <% end %>
+    </div>
     <% end %>
   </div>
-<% end %>
-</div>
 </div>
 <script>
-$(document).ready(function () {
-  $('.datepicker').datepicker({language: 'it'});
-});
+  $(document).ready(function () {
+    $('.datepicker').datepicker({
+      language: 'it'
+    });
+  });
 </script>

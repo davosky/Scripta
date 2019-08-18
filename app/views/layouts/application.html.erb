@@ -12,12 +12,12 @@
     <div class='container-fluid'>
       <div class='row'>
         <div class='col col-lg-12'>
-          <%= render 'shared/navbar' %>
+          <%= render 'shared/navbar' if current_user %>
         </div>
       </div>
       <div class='row'>
         <div class='col col-lg-2'>
-          <%= render 'shared/sidebar' %>
+          <%= render 'shared/sidebar' if current_user %>
         </div>
         <div class='col col-lg-10'>
           <%= yield %>
