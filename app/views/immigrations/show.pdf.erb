@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('pdfprintstyle') %>
+  </head>
+  <body>
+    <div id='page'>
+      <div id='header'>
+        <div id='logo'>
+          <strong>
+            <%= inline_svg('pdf_header_icon_22.svg', size: '200px * 36px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          </strong>
+        </div>
+        <hr>
+      </div>
+      <div>
+        <h3>
+          Modello: <%= @immigration.name %>
+          &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+          <%= @immigration.title %>
+        </h3>
+        <br>
+        Documenti Richiesti:
+        <hr>
+        <br>
+        <%= sanitize @immigration.content %>
+      </div>
+    </div>
+  </body>
+</html>

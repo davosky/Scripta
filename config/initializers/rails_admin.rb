@@ -23,6 +23,12 @@ RailsAdmin.config do |config|
     label_plural 'Assistenza'
   end
 
+  config.model 'Immigration' do
+    visible true
+    label 'Immigrazione'
+    label_plural 'Immigrazione'
+  end
+
   config.actions do
     dashboard
     index

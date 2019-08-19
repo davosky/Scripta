@@ -7,8 +7,10 @@ class Ability
         can :manage, :all
       elsif user.user_type == 'publisher'
         can :manage, Assistance
+        can :manage, Immigration
       else
         can :read, Assistance
+        can :read, Immigration
       end
     end
   end

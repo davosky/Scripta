@@ -4,7 +4,7 @@ class AssistancesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @assistances = Assistance.all
+    @assistances = Assistance.all.order(position: 'ASC')
   end
 
   def show

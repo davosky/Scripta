@@ -18,6 +18,14 @@ it:
         creation_date: Data Creazione
         revision_date: Data Revisione
         note: Note
+      immigration:
+        position: Posizione
+        name: Codice
+        title: Titolo
+        content: Contenuto
+        creation_date: Data Creazione
+        revision_date: Data Revisione
+        note: Note
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
