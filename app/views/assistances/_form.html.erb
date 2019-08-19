@@ -3,11 +3,11 @@
     <%= form_with(model: assistance, local: true) do |form| %>
     <% if assistance.errors.any? %>
     <div id='error_explanation'>
-      <h2><%= pluralize(assistance.errors.count, 'error') %>
-        prohibited this assistance from being saved:</h2>
+      <h4><%= pluralize(assistance.errors.count, 'error') %>
+        non posso salvare il seguente record causa errore di inserimento:</h4>
       <ul>
         <% assistance.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li class='text-danger'><%= message %></li>
         <% end %>
       </ul>
     </div>
