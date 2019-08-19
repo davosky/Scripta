@@ -4,11 +4,13 @@
 Assistenza
 <span class='pull-right'>
   <h6>
-    <%= link_to new_assistance_path, class: 'btn btn-default btn-sm' do %>
-      <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-      &nbsp;
-      <%= inline_svg('assistenza_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-      Nuova Scheda
+    <% if admin? || publisher? %>
+      <%= link_to new_assistance_path, class: 'btn btn-default btn-sm' do %>
+        <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+        &nbsp;
+        <%= inline_svg('assistenza_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+        Nuova Scheda
+      <% end %>
     <% end %>
   </h6>
 </span>
