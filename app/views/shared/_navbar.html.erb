@@ -36,9 +36,16 @@
             <span class='caret'></span></a>
           <ul class='dropdown-menu' role='menu'>
             <li>
-              <% if admin? %> <%= link_to rails_admin_path do %>
-              <i class='fas fa-cog'></i>&nbsp;&nbsp;Amministrazione <% end %> <%
-              end %>
+              <% if admin? %>
+                <%= link_to rails_admin_path do %>
+                <i class='fas fa-cog'></i>&nbsp;&nbsp;Amministrazione
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to home_about_path do %>
+              <i class='fas fa-user'></i>&nbsp;&nbsp;Credenziali
+              <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
