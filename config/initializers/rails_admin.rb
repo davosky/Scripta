@@ -29,6 +29,18 @@ RailsAdmin.config do |config|
     label_plural 'Immigrazione'
   end
 
+  config.model 'Pension' do
+    visible true
+    label 'Pensione'
+    label_plural 'Pensione'
+  end
+
+  config.model 'Health' do
+    visible true
+    label 'Salute'
+    label_plural 'Salute'
+  end
+
   config.actions do
     dashboard
     index

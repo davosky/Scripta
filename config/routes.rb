@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :immigrations
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 	root to: 'home#index'
@@ -7,4 +6,7 @@ Rails.application.routes.draw do
 	get 'home/howto'
 	get 'home/about'
 	resources :assistances
+  resources :immigrations
+  resources :pensions
+  resources :healths
 end

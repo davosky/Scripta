@@ -25,7 +25,24 @@
           </h6>
           <% end %>
         </li>
+        <li>
+          <%= link_to pensions_path do %>
+          <h6>
+            <%= inline_svg('pensioni_icon_22.svg', size: '14px * 14px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+            PENSIONI
+          </h6>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to healths_path do %>
+          <h6>
+            <%= inline_svg('salute_icon_22.svg', size: '14px * 14px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+            SALUTE
+          </h6>
+          <% end %>
+        </li>
       </ul>
+      <hr>
     </div>
   </div>
 </nav>
