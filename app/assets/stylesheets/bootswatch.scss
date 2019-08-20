@@ -4,8 +4,10 @@
 
 $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" !default;
 $web-font-path_one: "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300, 400, 700";
+$web-font-path_two: "//fonts.googleapis.com/css?family=Roboto+Condensed:300, 400, 700";
 @import url($web-font-path);
 @import url($web-font-path_one);
+@import url($web-font-path_two);
 
 // Custom =====================================================================
 
@@ -61,11 +63,11 @@ $web-font-path_one: "https://fonts.googleapis.com/css?family=Open+Sans+Condensed
 }
 
 .condensed {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .condensed-lite-green-bg {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   background-color: #f5f0ed;
 }
 

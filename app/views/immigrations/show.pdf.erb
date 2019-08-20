@@ -7,10 +7,8 @@
   <body>
     <div id='page'>
       <div id='header'>
-        <div id='logo'>
-          <strong>
-            <%= inline_svg('pdf_header_icon_22.svg', size: '200px * 36px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-          </strong>
+        <div class='logo'>
+          <%= inline_svg('pdf_header_icon_22.svg', size: '200px * 36px', preserve_aspect_ratio: 'xMaxYMax meet') %>
         </div>
         <hr>
       </div>
@@ -20,11 +18,12 @@
           &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
           <%= @immigration.title %>
         </h3>
-        <br>
-        Documenti Richiesti:
         <hr>
-        <br>
-        <%= sanitize @immigration.content %>
+        <h3>
+          <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          &nbsp;Documenti Richiesti:
+        </h3>
+          <%= sanitize @immigration.content %>
       </div>
     </div>
   </body>
