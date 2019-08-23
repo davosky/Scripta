@@ -5,25 +5,31 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap' rel='stylesheet'>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <div class='container-fluid'>
-      <div class='row'>
-        <div class='col col-lg-12'>
-          <%= render 'shared/navbar' if current_user %>
+      <% if current_user %>
+        <div class='row'>
+          <div class='col col-lg-12'>
+            <%= render 'shared/navbar' %>
+          </div>
         </div>
-      </div>
-      <div class='row'>
-        <div class='col col-lg-2'>
-          <%= render 'shared/sidebar' if current_user %>
+        <div class='row'>
+          <div class='col col-lg-2'>
+            <%= render 'shared/sidebar' %>
+          </div>
+          <div class='col col-lg-10'>
+            <%= yield %>
+          </div>
         </div>
-        <div class='col col-lg-10'>
+      <% else %>
+        <div class='col col-lg-3 col-lg-offset-4'>
           <%= yield %>
         </div>
-      </div>
+      <% end %>
     </div>
   </body>
 </html>
