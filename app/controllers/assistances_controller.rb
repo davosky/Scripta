@@ -24,7 +24,6 @@ class AssistancesController < ApplicationController
 
   def create
     @assistance = Assistance.new(assistance_params)
-
     respond_to do |format|
       if @assistance.save
         format.html { redirect_to @assistance, notice: 'Assistance was successfully created.' }
