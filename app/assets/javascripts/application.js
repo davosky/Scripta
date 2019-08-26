@@ -17,5 +17,4 @@
 //= require bootstrap-datepicker
 //= require popper
 //= require trix
-//= require activestorage
 //= require_tree .
