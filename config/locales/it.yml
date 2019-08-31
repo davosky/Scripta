@@ -42,6 +42,14 @@ it:
         creation_date: Data Creazione
         revision_date: Data Revisione
         note: Note
+      attachment:
+        name: Nome Allegato
+        publication_date: Data Publicazione
+        pdf: PDF Allegato
+        assistance_id: Assistenza
+        helath_id: Salute
+        pension_id: Pensione
+        immigration: Immigrazione
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'

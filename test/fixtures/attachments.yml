@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  publication_date: MyString
+  assistance: one
+  health: one
+  immigration: one
+  pension: one
+
+two:
+  name: MyString
+  publication_date: MyString
+  assistance: two
+  health: two
+  immigration: two
+  pension: two
