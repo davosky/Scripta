@@ -1,75 +1,74 @@
-
 .clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 body {
-  position: relative;
-  width: 21cm;
-  height: 29.7cm;
-  margin: 0 auto;
-  color: #000000;
-  background: #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 11px;
+    position: relative;
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0 auto;
+    color: #000000;
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
 }
 
 header {
-  padding: 10px 0;
-  margin-bottom: 30px;
+    padding: 10px 0;
+    margin-bottom: 30px;
 }
 
 footer {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  position: absolute;
-  bottom: 0;
-  padding: 8px 0;
-  text-align: center;
+    color: #5D6975;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    padding: 8px 0;
+    text-align: center;
 }
 
 div {
-  font-size: 15px;
-  font-weight: 400;
+    font-size: 15px;
+    font-weight: 400;
 }
 
 pre {
-  font-size: 14px;
-  font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 h3 {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 strong {
-  font-size: 16px;
-  font-weight: 900;
+    font-size: 16px;
+    font-weight: 900;
 }
 
 .logo {
-  text-align: right;
-  margin-bottom: 10px;
+    text-align: right;
+    margin-bottom: 10px;
 }
 
 @page {
-  size: A4;
-  orientation: landscape;
-  margin: 0;
+    size: A4;
+    orientation: landscape;
+    margin: 0;
 }
 
 @media print {
-  .page {
-    margin: 0;
-    border: initial;
-    border-radius: initial;
-    width: initial;
-    min-height: initial;
-    box-shadow: initial;
-    background: initial;
-    page-break-after: always;
-  }
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
 }

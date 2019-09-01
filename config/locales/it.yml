@@ -18,6 +18,8 @@ it:
         creation_date: Data Creazione
         revision_date: Data Revisione
         note: Note
+        publication_date: Data Publicazione
+        pdf: PDF Allegato
       immigration:
         position: Posizione
         name: Codice

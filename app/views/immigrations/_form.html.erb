@@ -1,6 +1,6 @@
 <div class='container'>
   <div class='col col-lg-10 col-lg-offset-1'>
-    <%= form_with(model: immigration, local: true) do |form| %>
+    <%= form_with(model: immigration, local: true) do |f| %>
     <% if immigration.errors.any? %>
     <div id='error_explanation'>
       <h4><%= pluralize(immigration.errors.count, 'error') %>
@@ -13,35 +13,65 @@
     </div>
     <% end %>
     <div class='field'>
-      <%= form.label :position, class: 'text-info' %>
-      <%= form.number_field :position, class: 'form-control' %>
+      <%= f.label :position, class: 'text-info' %>
+      <%= f.number_field :position, class: 'form-control' %>
     </div>
     <div class='field'>
-      <%= form.label :name, class: 'text-info' %>
-      <%= form.text_field :name, class: 'form-control' %>
+      <%= f.label :name, class: 'text-info' %>
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
     <div class='field'>
-      <%= form.label :title, class: 'text-info' %>
-      <%= form.text_field :title, class: 'form-control' %>
+      <%= f.label :title, class: 'text-info' %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
     <div class='field'>
-      <%= form.label :content, class: 'text-info' %>
-      <%= form.hidden_field :content, id: :content, class: 'form-control' %>
+      <%= f.label :content, class: 'text-info' %>
+      <%= f.hidden_field :content, id: :content, class: 'form-control' %>
       <trix-editor input='content'></trix-editor>
     </div>
     <div class='field'>
-      <%= form.label :creation_date, class: 'text-info' %>
-      <%= form.text_field :creation_date, class: 'datepicker form-control' %>
+      <%= f.label :creation_date, class: 'text-info' %>
+      <%= f.text_field :creation_date, class: 'datepicker form-control' %>
     </div>
     <div class='field'>
-      <%= form.label :revision_date, class: 'text-info' %>
-      <%= form.text_field :revision_date, class: 'datepicker form-control' %>
+      <%= f.label :revision_date, class: 'text-info' %>
+      <%= f.text_field :revision_date, class: 'datepicker form-control' %>
     </div>
     <div class='field'>
-      <%= form.label :note, class: 'text-info' %>
-      <%= form.text_area :note, id: :content, class: 'form-control' %>
+      <%= f.label :note, class: 'text-info' %>
+      <%= f.text_area :note, id: :content, class: 'form-control' %>
     </div>
     <br>
+    <!-- NESTED -->
+      <div class='panel panel-default'>
+        <div class='panel-heading'>
+          <h6>
+            ALLEGATI:
+            <span class='pull-right'>
+              <i class="fas fa-plus"></i>&nbsp;<i class="fas fa-paperclip"></i>&nbsp;
+              <%= link_to_add_row('Aggiungi Allegato', f, :attachments, class: 'text-success') %>
+            </span>
+          </h6>
+        </div>
+        <div class='panel-body'>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>Nome File</th>
+                <th>Allegato</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class='fields'>
+              <%= f.simple_fields_for :attachments do |builder| %>
+                <%= render 'attachment', f: builder %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- /NESTED -->
+      <br>
     <div class='form-group'>
       <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
       <%= fa_icon('save') %>&nbsp;&nbsp;Salva

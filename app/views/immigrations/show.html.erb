@@ -1,54 +1,67 @@
 <h5 class='text-info'>
-  <%= inline_svg('immigrazione_icon_32.svg', size: '32px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+  <%= inline_svg('immigrazione_icon_32.svg', size: '52px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
   &nbsp;&nbsp;
   <%= @immigration.title %>
   <span class='pull-right'>
     <h5>
       <%= link_to immigrations_path, class: 'btn btn-sm btn-default' do %>
-      <i class='fas fa-arrow-left'></i>&nbsp;&nbsp;&nbsp;Ritorna alla Lista
-    <% end %>
-    <% if can? :edit, @immigration %>
-      <%= link_to edit_immigration_path(@immigration), class: 'btn btn-sm btn-default' do %>
-        <i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;&nbsp;Modifica la Scheda
+        <i class='fas fa-arrow-left'></i>&nbsp;&nbsp;&nbsp;Ritorna alla Lista
       <% end %>
-    <% end %>
-    <% if can? :destroy, @immigration %>
-      <%= link_to @immigration, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la scheda corrente?' }, class: 'btn btn-sm btn-default' do %>
-        <i class='fas fa-trash-alt'></i>&nbsp;&nbsp;&nbsp;Elimina la Scheda
+      <% if can? :edit, @immigration %>
+        <%= link_to edit_immigration_path(@immigration), class: 'btn btn-sm btn-default' do %>
+          <i class='fas fa-pencil-alt'></i>&nbsp;&nbsp;&nbsp;Modifica la Scheda
+        <% end %>
       <% end %>
-    <% end %>
-</h5>
-</span>
+      <% if can? :destroy, @immigration %>
+        <%= link_to @immigration, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la scheda corrente?' }, class: 'btn btn-sm btn-default' do %>
+          <i class='fas fa-trash-alt'></i>&nbsp;&nbsp;&nbsp;Elimina la Scheda
+        <% end %>
+      <% end %>
+    </h5>
+  </span>
 </h5>
 <hr class='hr-grey-lite'>
 <div class='container'>
-<div class='col col-lg-10 col-lg-offset-1'>
-<h6>
-  <span class="pull-right">
-    <%= link_to immigration_path(@immigration, format: :pdf), target: 'new' do %>
-      <%= inline_svg('pdf_icon_22.svg', size: '15px * 15px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-      &nbsp;PDF
-    <% end %>
-  </span>
-<span class='text-info'>Codice:</span>
-&nbsp;&nbsp;<span class='text-grey-dark'><%= @immigration.name %></span>
-&nbsp;&nbsp;
-<span class='text-info'>Titolo:</span>
-&nbsp;&nbsp;<span class='text-grey-dark'><%= @immigration.title %></span>
-<br>
-<span class='text-info'>Data Creazione:</span>
-&nbsp;&nbsp;<span class='text-grey-dark'><%= l(@immigration.creation_date, format: '%A %d %B %Y') %></span>
-&nbsp;&nbsp;
-<span class='text-info'>Data Revisione:</span>
-&nbsp;&nbsp;<span class='text-grey-dark'><%= l(@immigration.revision_date, format: '%A %d %B %Y') if immigrationrevisionisnotnill? %></span>
-</h6>
-<hr>
-<h6 class='text-info'>Documenti Richiesti</h6>
-<%= sanitize @immigration.content %>
-<br>
-<hr>
-Note:
-<br>
-<%= @immigration.note %>
-</div>
-</div>
+  <div class='col col-lg-10 col-lg-offset-1'>
+    <h6>
+      <span class="pull-right">
+        <%= link_to immigration_path(@immigration, format: :pdf), target: 'new' do %>
+          <%= inline_svg('pdf_icon_22.svg', size: '15px * 15px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          &nbsp;PDF
+        <% end %>
+      </span>
+      <span class='text-info'>Codice:</span>
+      &nbsp;&nbsp;<span class='text-grey-dark'><%= @immigration.name %></span>
+      &nbsp;&nbsp;
+      <span class='text-info'>Titolo:</span>
+      &nbsp;&nbsp;<span class='text-grey-dark'><%= @immigration.title %></span>
+      <br>
+      <span class='text-info'>Data Creazione:</span>
+      &nbsp;&nbsp;<span class='text-grey-dark'><%= l(@immigration.creation_date, format: '%A %d %B %Y') %></span>
+      &nbsp;&nbsp;
+      <span class='text-info'>Data Revisione:</span>
+      &nbsp;&nbsp;<span class='text-grey-dark'><%= l(@immigration.revision_date, format: '%A %d %B %Y') if immigrationrevisionisnotnill? %></span>
+    </h6>
+    <hr>
+    <h6 class='text-info'>Documenti Richiesti</h6>
+    <%= sanitize @immigration.content %>
+    <br>
+    <hr>
+    Note:
+    <br>
+    <%= @immigration.note %>
+    <br>
+    <hr>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        <h6>Allegati:</h6>
+      </div>
+      <div class='panel-body'>
+        <% @immigration.attachments.each do |attachment| %>
+          <dl class='dl-horizontal'>
+            <dt>Allegato:</dt>
+            <dd><%= link_to attachment.name, attachment, target: 'new' %></dd>
+          </dl>
+        <% end %>
+      </div>
+    </div>

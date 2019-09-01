@@ -1,0 +1,12 @@
+<tr>
+  <td><%= f.input :name, label: false, class: 'form-control' %></td>
+  <td><%= f.input :pdf, as: :file, label: false, class: 'form-control' %></td>
+  <td>
+    <%= f.input_field :_destroy, as: :hidden %>
+    <%= link_to '#', class: 'remove_record' do %>
+      <h5>
+        <i class="fas fa-trash-alt text-danger" data-toggle="tooltip" title="Elimina Allegato"></i>
+      </h5>
+    <% end %>
+  </td>
+</tr>

@@ -1,5 +1,5 @@
 <h4 class='text-info'>
-  <%= inline_svg('assistenza_icon_32.svg', size: '32px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+  <%= inline_svg('assistenza_icon_32.svg', size: '52px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
   &nbsp;&nbsp;
   Assistenza
   <span class='pull-right'>
@@ -16,7 +16,7 @@
   </span>
 </h4>
 <hr>
-<div class='container'>
+<div class='container-fluid'>
   <% @assistances.each_slice(3)  do |assistances| %>
     <div class='row'>
       <% assistances.each  do |assistance| %>
@@ -38,7 +38,7 @@
               </H6>
             </div>
             <div class='panel-footer'>
-            <i class="fas fa-paperclip"></i>&nbsp;
+              <i class="fas fa-paperclip"></i>&nbsp;
               <% assistance.attachments.each do |attachment| %>
                 <small>
                   <%= link_to attachment.name, attachment, target: 'new' %>

@@ -4,15 +4,15 @@ class ImmigrationsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @immigrations = Immigration.all.order(position: 'ASC')
+    @immigrations = Immigration.all.order(position: "ASC")
   end
 
   def show
     respond_to do |format|
-        format.html
-        format.json
-        format.pdf { render template: 'immigrations/show', pdf: 'pdfprintstyle' }
-      end
+      format.html
+      format.json
+      format.pdf { render template: "immigrations/show", pdf: "pdfprintstyle" }
+    end
   end
 
   def new
@@ -27,7 +27,7 @@ class ImmigrationsController < ApplicationController
 
     respond_to do |format|
       if @immigration.save
-        format.html { redirect_to @immigration, notice: 'Immigration was successfully created.' }
+        format.html { redirect_to @immigration, notice: "Immigration was successfully created." }
         format.json { render :show, status: :created, location: @immigration }
       else
         format.html { render :new }
@@ -39,7 +39,7 @@ class ImmigrationsController < ApplicationController
   def update
     respond_to do |format|
       if @immigration.update(immigration_params)
-        format.html { redirect_to @immigration, notice: 'Immigration was successfully updated.' }
+        format.html { redirect_to @immigration, notice: "Immigration was successfully updated." }
         format.json { render :show, status: :ok, location: @immigration }
       else
         format.html { render :edit }
@@ -51,17 +51,18 @@ class ImmigrationsController < ApplicationController
   def destroy
     @immigration.destroy
     respond_to do |format|
-      format.html { redirect_to immigrations_url, notice: 'Immigration was successfully destroyed.' }
+      format.html { redirect_to immigrations_url, notice: "Immigration was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_immigration
-      @immigration = Immigration.find(params[:id])
-    end
 
-    def immigration_params
-      params.require(:immigration).permit(:position, :name, :title, :content, :note, :creation_date, :revision_date)
-    end
+  def set_immigration
+    @immigration = Immigration.find(params[:id])
+  end
+
+  def immigration_params
+    params.require(:immigration).permit(:position, :name, :title, :content, :note, :creation_date, :revision_date, attachments_attributes: Attachment.attribute_names.map(&:to_sym).push(:_destroy))
+  end
 end

@@ -1,46 +1,53 @@
 <h4 class='text-info'>
-<%= inline_svg('immigrazione_icon_32.svg', size: '32px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-&nbsp;&nbsp;
-Immigrazione
-<span class='pull-right'>
-  <h6>
-    <% if admin? || publisher? %>
-      <%= link_to new_immigration_path, class: 'btn btn-default btn-sm' do %>
-        <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-        &nbsp;
-        <%= inline_svg('immigrazione_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-        Nuova Scheda
+  <%= inline_svg('immigrazione_icon_32.svg', size: '52px * 32px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+  &nbsp;&nbsp;
+  Immigrazione
+  <span class='pull-right'>
+    <h6>
+      <% if admin? || publisher? %>
+        <%= link_to new_immigration_path, class: 'btn btn-default btn-sm' do %>
+          <%= inline_svg('new_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          &nbsp;
+          <%= inline_svg('immigrazione_icon_22.svg', size: '18px * 18px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          Nuova Scheda
+        <% end %>
       <% end %>
-    <% end %>
-  </h6>
-</span>
+    </h6>
+  </span>
 </h4>
 <hr>
-<div class='container'>
+<div class='container-fluid'>
   <% @immigrations.each_slice(3)  do |immigrations| %>
     <div class='row'>
-    <% immigrations.each  do |immigration| %>
-      <div class='col-lg-4'>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
-            <%= inline_svg('assistenza_icon_22.svg', size: '11px * 11px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-            &nbsp;
-            <%= immigration.name %>
-            <span class='pull-right'>
-              <%= link_to immigration_path(immigration, format: :pdf), target: 'new' do %>
-                <%= inline_svg('pdf_icon_22.svg', size: '11px * 11px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-                &nbsp;PDF
+      <% immigrations.each  do |immigration| %>
+        <div class='col-lg-4'>
+          <div class='panel panel-default'>
+            <div class='panel-body'>
+              <%= inline_svg('immigrazione_icon_22.svg', size: '11px * 11px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+              &nbsp;
+              <%= immigration.name %>
+              <span class='pull-right'>
+                <%= link_to immigration_path(immigration, format: :pdf), target: 'new' do %>
+                  <%= inline_svg('pdf_icon_22.svg', size: '11px * 11px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+                  &nbsp;PDF
+                <% end %>
+              </span>
+              <hr>
+              <H6>
+                <%= link_to immigration.title, immigration %>
+              </H6>
+            </div>
+            <div class='panel-footer'>
+              <i class="fas fa-paperclip"></i>&nbsp;
+              <% immigration.attachments.each do |attachment| %>
+                <small>
+                  <%= link_to attachment.name, attachment, target: 'new' %>
+                </small>
               <% end %>
-            </span>
-          </div>
-          <div class='panel-body'>
-            <H6>
-              <%= link_to immigration.title, immigration %>
-            </H6>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   <% end %>
 </div>

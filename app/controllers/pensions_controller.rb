@@ -7,10 +7,10 @@ class PensionsController < ApplicationController
 
   def show
     respond_to do |format|
-        format.html
-        format.json
-        format.pdf { render template: 'pensions/show', pdf: 'pdfprintstyle' }
-      end
+      format.html
+      format.json
+      format.pdf { render template: "pensions/show", pdf: "pdfprintstyle" }
+    end
   end
 
   def new
@@ -25,7 +25,7 @@ class PensionsController < ApplicationController
 
     respond_to do |format|
       if @pension.save
-        format.html { redirect_to @pension, notice: 'Pension was successfully created.' }
+        format.html { redirect_to @pension, notice: "Pension was successfully created." }
         format.json { render :show, status: :created, location: @pension }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class PensionsController < ApplicationController
   def update
     respond_to do |format|
       if @pension.update(pension_params)
-        format.html { redirect_to @pension, notice: 'Pension was successfully updated.' }
+        format.html { redirect_to @pension, notice: "Pension was successfully updated." }
         format.json { render :show, status: :ok, location: @pension }
       else
         format.html { render :edit }
@@ -49,17 +49,18 @@ class PensionsController < ApplicationController
   def destroy
     @pension.destroy
     respond_to do |format|
-      format.html { redirect_to pensions_url, notice: 'Pension was successfully destroyed.' }
+      format.html { redirect_to pensions_url, notice: "Pension was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_pension
-      @pension = Pension.find(params[:id])
-    end
 
-    def pension_params
-      params.require(:pension).permit(:position, :name, :title, :content, :note, :creation_date, :revision_date)
-    end
+  def set_pension
+    @pension = Pension.find(params[:id])
+  end
+
+  def pension_params
+    params.require(:pension).permit(:position, :name, :title, :content, :note, :creation_date, :revision_date, attachments_attributes: Attachment.attribute_names.map(&:to_sym).push(:_destroy))
+  end
 end
